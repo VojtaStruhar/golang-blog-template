@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create a new article</title>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: '#mytextarea',
-        });
-    </script>
-</head>
-<body>
-<h1>Create a new article</h1>
+{{define "title"}}Create new article{{end}}
+{{define "scripts"}}
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#mytextarea',
+    });
+</script>
+{{end}}
+{{define "body"}}
 <form method="post" action="/articles">
-    <input id="title" type="text" name="title" placeholder="Enter the title">
+    <input type="text" name="title" placeholder="Enter the title">
     <textarea id="mytextarea" name="content"></textarea>
     <button id="submit" type="submit">Create</button>
 </form>
-</body>
-</html>
+{{end}}

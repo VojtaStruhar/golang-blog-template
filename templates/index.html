@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All articles</title>
-</head>
-<body>
+{{define "title"}}All articles{{end}}
+{{define "scripts"}}{{end}}
+{{define "body"}}
 {{if eq (len .) 0}}
 Nothing to see here
 {{end}}
@@ -17,5 +13,4 @@ Nothing to see here
     <a href="/articles">Create new article</a>
 
 </p>
-</body>
-</html>
+{{end}}

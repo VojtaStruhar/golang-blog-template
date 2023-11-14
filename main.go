@@ -101,13 +101,15 @@ func GetAllArticles(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println("GetAllArticles:", articles)
 
-	t, _ := template.ParseFiles("templates/index.html")
+	t, _ := template.ParseFiles("templates/base.html", "templates/index.html")
 	err = t.Execute(w, articles)
 	catch(err)
 }
 
 func NewArticle(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "templates/new.html")
+	t, _ := template.ParseFiles("templates/base.html", "templates/new.html")
+	err := t.Execute(w, nil)
+	catch(err)
 }
 
 func CreateArticle(w http.ResponseWriter, r *http.Request) {
@@ -125,8 +127,9 @@ func CreateArticle(w http.ResponseWriter, r *http.Request) {
 
 func GetArticle(w http.ResponseWriter, r *http.Request) {
 	article := r.Context().Value("article").(*Article)
-	fmt.Println(article)
-	//TODO: Render template
+	t, _ := template.ParseFiles("templates/base.html", "templates/article.html")
+	err := t.Execute(w, article)
+	catch(err)
 }
 
 func EditArticle(w http.ResponseWriter, r *http.Request) {
