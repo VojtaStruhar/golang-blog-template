@@ -48,6 +48,7 @@ func main() {
 	router.Get("/", GetAllArticles)
 	router.Post("/upload", UploadHandler) // Add this
 	router.Get("/images/*", ServeImages)  // Add this
+	router.Get("/static/*", ServeStatic)
 	router.Route("/articles", func(r chi.Router) {
 		r.Get("/", NewArticle)
 		r.Post("/", CreateArticle)
@@ -221,5 +222,11 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 func ServeImages(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(r.URL)
 	fs := http.StripPrefix("/images/", http.FileServer(http.Dir("./images")))
+	fs.ServeHTTP(w, r)
+}
+
+func ServeStatic(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(r.URL)
+	fs := http.StripPrefix("/static/", http.FileServer(http.Dir("./static")))
 	fs.ServeHTTP(w, r)
 }
