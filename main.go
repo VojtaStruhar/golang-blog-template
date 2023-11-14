@@ -141,8 +141,11 @@ func GetArticle(w http.ResponseWriter, r *http.Request) {
 
 func EditArticle(w http.ResponseWriter, r *http.Request) {
 	article := r.Context().Value("article").(*Article)
-	fmt.Println(article)
-	// TODO: Render template
+	fmt.Println("EditArticle:", article)
+
+	t, _ := template.ParseFiles("templates/base.html", "templates/edit.html")
+	err := t.Execute(w, article)
+	catch(err)
 }
 
 func UpdateArticle(w http.ResponseWriter, r *http.Request) {
