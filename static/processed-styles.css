@@ -98,14 +98,64 @@
   --tw-backdrop-sepia:  ;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .hidden {
   display: none;
+}
+
+.max-w-screen-xl {
+  max-width: 1280px;
 }
 
 .italic {
   font-style: italic;
 }
 
-h1 {
-  color: red;
+@font-face {
+  font-family: "Geist";
+
+  font-style: normal;
+
+  font-weight: 100 900;
+
+  font-display: optional;
+
+  src: url(/static/GeistVariableVF.woff2) format("woff2");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+li,
+ul,
+ol,
+div,
+input,
+textarea,
+button,
+label,
+select,
+option,
+form,
+fieldset,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  font-family: "Geist", sans-serif;
 }
