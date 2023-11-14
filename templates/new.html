@@ -4,6 +4,15 @@
 <script>
     tinymce.init({
         selector: '#mytextarea',
+        plugins: 'image',
+        toolbar: 'undo redo | blocks | image | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+        images_upload_url: "/upload",
+        relative_urls : false,
+        remove_script_host : false,
+        convert_urls : true,
     });
 </script>
 {{end}}
