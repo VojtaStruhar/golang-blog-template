@@ -2,11 +2,18 @@
 module.exports = {
   content: ["./templates/**/*.html"],
   theme: {
-    extend: {},
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "100%", // add required value here
+          },
+        },
+      },
+    },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
   corePlugins: {
     preflight: false,
-  }
-}
-
+  },
+};

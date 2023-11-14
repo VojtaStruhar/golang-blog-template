@@ -1,16 +1,20 @@
-{{define "title"}}All articles{{end}}
-{{define "scripts"}}{{end}}
-{{define "body"}}
-{{if eq (len .) 0}}
-Nothing to see here
-{{end}}
-{{range .}}
-<div>
-    <a href="/articles/{{.ID}}">{{.Title}}</a>
-</div>
-{{end}}
-<p>
-    <a href="/articles">Create new article</a>
+{{define "title"}}All articles{{end}} {{define "scripts"}}{{end}} {{define
+"body"}} {{if eq (len .) 0}} Nothing to see here {{end}}
 
+<div class="my-8">
+  <ul>
+    {{range .}}
+    <li class="my-2">
+      <a href="/articles/{{.ID}}">{{.Title}}</a>
+    </li>
+    {{end}}
+  </ul>
+</div>
+<p>
+  <a
+    class="py-2 px-6 bg-emerald-400 rounded shadow border no-underline font-semibold text-white"
+    href="/articles"
+    >Create new article</a
+  >
 </p>
 {{end}}
