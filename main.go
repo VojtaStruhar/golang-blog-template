@@ -61,6 +61,8 @@ func main() {
 		})
 	})
 
+	fmt.Println("Serving on localhost:8005")
+
 	err = http.ListenAndServe(":8005", router)
 	catch(err)
 }
